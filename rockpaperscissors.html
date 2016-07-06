@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="rockpaperscissors.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+    <title>Rock, Paper, Scissors!</title>
+  </head>
+  <body>
+    <div class="container">
+      <section id="alert-box">
+        <form id="name-input" action="#" autocomplete="off">
+          <label>
+            Enter your name:
+            <input type="text" name="name" autofocus="on">
+          </label>
+        </form>
+      </section>
+
+      <div id="player" class="game-member-container">
+        <header>
+          <div class="name"></div>
+          <div class="wins">0</div>
+        </header>
+        <div id="player-hand" class="hand rock"></div>
+      </div>
+
+      <div id="computer" class="game-member-container">
+        <header>
+          <div class="wins">0</div>
+          <div class="name"></div>
+        </header>
+        <div id="computer-hand" class="hand rock"></div>
+      </div>
+
+      <footer>Made with <a href="https://github.com/twitter/twemoji">Twemoji</a></footer>
+    </div>
+    <script type="text/javascript" src="rockpaperscissors.js"></script>
+  </body>
+</html>
