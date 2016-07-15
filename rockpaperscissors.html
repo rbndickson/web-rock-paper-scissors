@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="rockpaperscissors.css">
+    <link href='https://fonts.googleapis.com/css?family=Fredoka+One' rel='stylesheet' type='text/css'>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
     <title>Rock, Paper, Scissors!</title>
@@ -10,29 +11,39 @@
   <body>
     <div class="container">
       <section id="alert-box">
-        <form id="name-input" action="#" autocomplete="off">
-          <label>
-            Enter your name:
-            <input type="text" name="name" autofocus="on">
-          </label>
-        </form>
+        Choose your character!
       </section>
+      <ul id="character-choices">
+        <li id="dog" class="character-choice dog"></li>
+        <li id="tiger" class="character-choice tiger"></li>
+        <li id="chick" class="character-choice chick"></li>
+        <li id="tako" class="character-choice tako"></li>
+        <li id="moon" class="character-choice moon"></li>
+        <li id="santa" class="character-choice santa"></li>
+        <li id="alien" class="character-choice alien"></li>
+        <li id="poop" class="character-choice poop"></li>
+        <li id="smiley" class="character-choice smiley"></li>
+        <li id="purple-demon" class="character-choice purple-demon"></li>
+      </ul>
 
-      <div id="player" class="game-member-container">
+      <main>
         <header>
-          <div class="name"></div>
-          <div class="wins">0</div>
-        </header>
-        <div id="player-hand" class="hand rock"></div>
-      </div>
+          <div id="player">
+            <ul>
+              <li class="character"></li><li class="wins">0</li>
+            </ul>
+          </div>
 
-      <div id="computer" class="game-member-container">
-        <header>
-          <div class="wins">0</div>
-          <div class="name"></div>
+          <div id="computer">
+            <ul>
+              <li class="wins">0</li><li class="character"></li>
+            </ul>
+          </div>
         </header>
-        <div id="computer-hand" class="hand rock"></div>
-      </div>
+        <section id="hands">
+          <div id="player-hand" class="hand rock"></div><div id="computer-hand" class="hand rock"></div>
+        </section>
+      </main>
 
       <footer>Made with <a href="https://github.com/twitter/twemoji">Twemoji</a></footer>
     </div>

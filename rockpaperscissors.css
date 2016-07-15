@@ -1,5 +1,13 @@
+/*  resets  */
+ul, li {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+/*  end resets  */
+
 body {
-  font: normal 18px 'Helvetica', Arial, Sans-serif;
+  font: normal 24px 'Fredoka One', 'Helvetica', Arial, Sans-serif;
 }
 
 div.container {
@@ -12,56 +20,101 @@ div.container {
 
 section#alert-box {
   width: 100%;
-  height: 50px;
+  height: 10vh;
   padding: 10px;
   box-sizing: border-box;
   text-align: center;
 }
 
-.game-member-container {
-  float: left;
-  height: 80%;
-  width: 50%;
+ul#character-choices {
+  margin: auto;
+  text-align: center;
 }
 
-.game-member-container header {
-  width: 100%;
-  font: normal 36px 'Helvetica', Arial, Sans-serif;
+li.character-choice {
+  display: inline-block;
+  height: 80px;
+  width: 80px;
 }
-.game-member-container header:after {
+
+main {
+  display: none;
+}
+
+header {
+  height: 20vh;
+}
+
+header:after {
   display: block;
   content: "";
   clear: both;
 }
 
-.name {
-  width: 75%;
-  text-align: center;
+header div {
+  float: left;
+  width: 50%;
+  font-size: 16vh;
+}
+
+header ul li {
+  display: inline-block;
+  height: 20vh;
+  vertical-align: middle;
 }
 
 .wins {
-  width: 25%;
+  width: 35%;
   text-align: center;
 }
 
-#player header div.name {
-  float: left
+.character {
+  width: 65%;
 }
 
-#player header div.wins {
-  float: right;
+.dog {
+  background: transparent no-repeat center url("https://twemoji.maxcdn.com/svg/1f436.svg");
+}
+.tiger {
+  background: transparent no-repeat center url("https://twemoji.maxcdn.com/svg/1f42f.svg");
+}
+.chick {
+  background: transparent no-repeat center url("https://twemoji.maxcdn.com/svg/1f425.svg");
+}
+.tako {
+  background: transparent no-repeat center url("https://twemoji.maxcdn.com/svg/1f419.svg");
+}
+.moon {
+  background: transparent no-repeat center url("https://twemoji.maxcdn.com/svg/1f31d.svg");
+}
+.santa {
+  background: transparent no-repeat center url("https://twemoji.maxcdn.com/svg/1f385.svg");
+}
+.alien {
+  background: transparent no-repeat center url("https://twemoji.maxcdn.com/svg/1f47d.svg");
+}
+.poop {
+  background: transparent no-repeat center url("https://twemoji.maxcdn.com/svg/1f4a9.svg");
+}
+.smiley {
+  background: transparent no-repeat center url("https://twemoji.maxcdn.com/svg/1f600.svg");
+}
+.purple-demon {
+  background: transparent no-repeat center url("https://twemoji.maxcdn.com/svg/1f608.svg");
 }
 
-#computer header div.name {
-  float: right;
+section#hands {
+  height: 60vh;
 }
-
-#computer header div.wins {
-  float: left;
+section#hands:after {
+  display: block;
+  content: "";
+  clear: both;
 }
 
 .hand {
-  width: 100%;
+  display: inline-block;
+  width: 50%;
   height: 100%;
 }
 
@@ -100,6 +153,11 @@ section#alert-box {
 }
 
 footer {
+  position: fixed;
+  height: 10vh;
+  bottom: 0;
+  left: 0;
+  right: 0;
   text-align: center;
   color: lightblue;
 }
@@ -107,20 +165,4 @@ footer {
 footer a {
   color: lightblue;
   text-decoration: none;
-}
-
-
-@media (min-width: 800px) {
-  .hand {
-    width: 60%;
-    height: 60%;
-  }
-
-  #player-hand {
-    margin: 20% 10% 20% 30%;
-  }
-
-  #computer-hand {
-    margin: 20% 30% 20% 10%;
-  }
 }
