@@ -64,10 +64,11 @@ Game.prototype = {
   init: function() {
     this.bindCharacters();
     this.bindKeypress();
+    this.bindControls();
   },
 
   randomCharacter: function() {
-    return this.charachters[Math.floor(Math.random()*this.charachters.length)];
+    return this.charachters[Math.floor( Math.random()*this.charachters.length )];
   },
 
   bindCharacters: function() {
@@ -80,32 +81,37 @@ Game.prototype = {
   },
 
   bindKeypress: function() {
-    $(document).on('keypress', this.play.bind( this ));
+    $( document ).on( "keypress", function( e ) {
+      if ( Object.keys( game.keysToHand ).indexOf( "" + e.which ) !== -1 ) {
+        game.player_hand = game.keysToHand[e.charCode];
+        game.play();
+      }
+    });
   },
 
   unbindKeypress: function() {
-    $( document ).off('keypress');
+    $( document ).off( "keypress" );
   },
 
-  play: function( e ) {
-    if ( Object.keys(this.keysToHand).indexOf( "" + e.which ) !== -1 ) {
-      this.resetHandDisplay();
-      this.setPlayerHand( e.which );
-      this.chooseComputerHand();
-      this.animateHands();
-      var that = this;
-      setTimeout( function(){
-        that.showChoosenHands();
-        that.addPoints();
-        Display.updatePoints();
-        that.bindKeypress();
-      }, 1500);
-    }
+  bindControls: function() {
+    $( "ul#controls li" ).click( function( e ) {
+      game.player_hand = this.id;
+      game.play();
+    });
   },
 
-  setPlayerHand: function( key ) {
-    this.player_hand = this.keysToHand[key];
+  play: function() {
     this.unbindKeypress();
+    this.resetHandToRock();
+    this.chooseComputerHand();
+    this.animateHands();
+    var that = this;
+    setTimeout( function(){
+      that.showChoosenHands();
+      that.addPoints();
+      Display.updatePoints();
+      that.bindKeypress();
+    }, 1500 );
   },
 
   chooseComputerHand: function() {
@@ -145,7 +151,7 @@ Game.prototype = {
     }
   },
 
-  resetHandDisplay: function() {
+  resetHandToRock: function() {
     $( ".hand" ).attr( "class", "hand rock" );
   }
 };
