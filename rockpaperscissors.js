@@ -1,18 +1,25 @@
 var Display = {
-  addInstruction: function() {
-    $( "#alert-box" ).html( "Choose <u>R</u>ock <u>P</u>aper or <u>S</u>cissors!" );
-  },
-
-  prepareGameDisplay: function() {
+  transitionMenuToGame: function() {
     $( "#" + game.player_character ).effect(
       "pulsate", { times: 1 }, 1500, function() {
+        $( "#alert-box" ).fadeTo( 300, 0 );
         $( "#character-choices" ).fadeOut(
           300, function() {
-            $( "main" ).fadeIn( 300, Display.addInstruction );
+            if( $( window ).width() < 800 ) {
+              $( "#alert-box" ).hide();
+            } else {
+              Display.showKeyboardInstructions();
+            }
+            $( "main" ).fadeIn( 300 );
           }
         );
       }
     );
+  },
+
+  showKeyboardInstructions: function() {
+    $( "#alert-box" ).html( "Choose <u>R</u>ock, <u>P</u>aper or <u>S</u>cissors!" );
+    $( "#alert-box" ).fadeTo( 300, 100 );
   },
 
   addComputerCharacter: function() {
@@ -48,7 +55,7 @@ Game.prototype = {
     83: "scissors"
   },
 
-  charachters: [
+  characters: [
     "dog",
     "tiger",
     "chick",
@@ -68,7 +75,7 @@ Game.prototype = {
   },
 
   randomCharacter: function() {
-    return this.charachters[Math.floor( Math.random()*this.charachters.length )];
+    return this.characters[Math.floor( Math.random()*this.characters.length )];
   },
 
   bindCharacters: function() {
@@ -76,7 +83,7 @@ Game.prototype = {
       game.player_character = this.id;
       Display.addPlayerCharacter();
       Display.addComputerCharacter();
-      Display.prepareGameDisplay();
+      Display.transitionMenuToGame();
     });
   },
 
@@ -94,7 +101,7 @@ Game.prototype = {
   },
 
   bindControls: function() {
-    $( "ul#controls li" ).click( function( e ) {
+    $( ".controls li" ).click( function( e ) {
       game.player_hand = this.id;
       game.play();
     });
@@ -126,7 +133,7 @@ Game.prototype = {
   },
 
   bounceHands: function() {
-    $( "#hands" ).effect( "bounce", {
+    $( ".hands" ).effect( "bounce", {
       distance: 30,
       times: 1,
     }, 500 );

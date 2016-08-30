@@ -1,7 +1,7 @@
 /*  resets  */
 ul, li {
-  margin: 0;
   padding: 0;
+  margin: 0;
   list-style: none;
 }
 /*  end resets  */
@@ -10,31 +10,31 @@ body {
   font: normal 4vh 'Fredoka One', 'Helvetica', Arial, Sans-serif;
 }
 
-div.container {
+.full-page-container {
   position: fixed;
   top: 0;
+  right: 0;
   bottom: 0;
   left: 0;
-  right: 0;
 }
 
-section#alert-box {
+.alert-box {
   width: 100%;
   height: 15vh;
   padding: 10px;
-  box-sizing: border-box;
   text-align: center;
+  box-sizing: border-box;
 }
 
-ul#character-choices {
+.character-choices {
   margin: auto;
   text-align: center;
 }
 
-li.character-choice {
+.character-choice {
   display: inline-block;
-  height: 80px;
   width: 80px;
+  height: 80px;
 }
 
 main {
@@ -43,12 +43,6 @@ main {
 
 header {
   height: 20vh;
-}
-
-header:after {
-  display: block;
-  content: "";
-  clear: both;
 }
 
 header div {
@@ -63,6 +57,12 @@ header ul li {
   vertical-align: middle;
 }
 
+header::after {
+  display: block;
+  clear: both;
+  content: "";
+}
+
 .wins {
   width: 35%;
   text-align: center;
@@ -75,74 +75,85 @@ header ul li {
 .dog {
   background: transparent no-repeat center url("https://twemoji.maxcdn.com/svg/1f436.svg");
 }
+
 .tiger {
   background: transparent no-repeat center url("https://twemoji.maxcdn.com/svg/1f42f.svg");
 }
+
 .chick {
   background: transparent no-repeat center url("https://twemoji.maxcdn.com/svg/1f425.svg");
 }
+
 .tako {
   background: transparent no-repeat center url("https://twemoji.maxcdn.com/svg/1f419.svg");
 }
+
 .moon {
   background: transparent no-repeat center url("https://twemoji.maxcdn.com/svg/1f31d.svg");
 }
+
 .santa {
   background: transparent no-repeat center url("https://twemoji.maxcdn.com/svg/1f385.svg");
 }
+
 .alien {
   background: transparent no-repeat center url("https://twemoji.maxcdn.com/svg/1f47d.svg");
 }
+
 .poop {
   background: transparent no-repeat center url("https://twemoji.maxcdn.com/svg/1f4a9.svg");
 }
+
 .smiley {
   background: transparent no-repeat center url("https://twemoji.maxcdn.com/svg/1f600.svg");
 }
+
 .purple-demon {
   background: transparent no-repeat center url("https://twemoji.maxcdn.com/svg/1f608.svg");
 }
 
-section#hands {
+.hands {
   height: 40vh;
 }
-section#hands:after {
+
+.hands::after {
   display: block;
-  content: "";
   clear: both;
+  content: "";
 }
 
 .hand-container {
   display: inline-block;
-  height: 100%;
   width: 50%;
+  height: 100%;
   text-align: center;
 }
 
-/*  for the hands the width becomes height
-and height becomes width due to rotation  */
+/*  for the hands the width becomes height  */
+/*  and height becomes width due to rotation  */
 .hand {
   width: 160px;
+  height: 160px;
   margin: 0 auto;
 }
 
 #player-hand {
-  -webkit-transform: rotate(90deg);
+  filter: hue-rotate(220deg);
   -moz-transform: rotate(90deg);
   -ms-transform: rotate(90deg);
   -o-transform: rotate(90deg);
+  -webkit-transform: rotate(90deg);
   transform: rotate(90deg);
-  filter :hue-rotate(220deg);
 }
 
 #computer-hand {
+  -ms-filter: "hue-rotate(30deg)";
+  filter: hue-rotate(120deg);
   -moz-transform: rotate(-90deg) scaleX(-1);
+  -ms-transform: rotate(-90deg) scaleX(-1);
   -o-transform: rotate(-90deg) scaleX(-1);
   -webkit-transform: rotate(-90deg) scaleX(-1);
-  -ms-transform: rotate(-90deg) scaleX(-1);
   transform: rotate(-90deg) scaleX(-1);
-  -ms-filter: "hue-rotate(30deg)";
-  filter :hue-rotate(120deg);
 }
 
 .rock {
@@ -160,27 +171,27 @@ and height becomes width due to rotation  */
   background-size: 100% 100%;
 }
 
-ul#controls {
+.controls {
   height: 20vh;
   padding: 0 0 5vh 0;
   box-sizing: border-box;
 }
 
-ul#controls li {
+.controls li {
   display: inline-block;
-  height: 100%;
   width: 33%;
+  height: 100%;
 }
 
 footer {
   position: fixed;
-  height: 5vh;
+  right: 0;
   bottom: 0;
   left: 0;
-  right: 0;
-  text-align: center;
+  height: 5vh;
   font-size: 3vh;
   color: lightblue;
+  text-align: center;
 }
 
 footer a {
@@ -188,17 +199,21 @@ footer a {
   text-decoration: none;
 }
 
-@media (min-height: 500px) and (min-width: 544px) {
-  section#alert-box {
-    height: 10vh;
+@media (max-height: 400px) {
+  .hand {
+    width: 100px;
+    height: 100px;
   }
+}
 
-  section#hands {
+@media (min-height: 500px) and (min-width: 544px) {
+  .hands {
     height: 45vh;
   }
 
   .hand {
     width: 220px;
+    height: 220px;
   }
 
   header div {
@@ -209,11 +224,13 @@ footer a {
 @media (min-height: 700px) and (min-width: 768px) {
   .hand {
     width: 340px;
+    height: 340px;
   }
 }
 
 @media (min-height: 900px) and (min-width: 992px) {
   .hand {
     width: 380px;
+    height: 380px;
   }
 }
